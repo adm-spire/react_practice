@@ -1,0 +1,13 @@
+.skill-box {
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding:10px;
+    margin: 5px;
+    text-align: center;
+    background-color: white;
+}
+
+.skill-text {
+    color: black;     /* Prevent inheritance */
+    font-size: 10px;
+}
