@@ -3,18 +3,29 @@ import Incrementer from './incremeter'
 
 
 function App() {
-  const [count1] = useState(0)
+  const [step, setStep] = useState(1)
+  const [count, setCount] = useState(1)
+  
+  const incrementStep = () => setStep(step + 1)
+  const decrementStep = () => setStep(step - 1)
+  
+  const incrementCount = () => setCount(count + step)
+  const decrementCount = () => {
+    const newCount = count - step
+    if (newCount >= 0) setCount(newCount)
+  }
 
-
+  const futureDate = new Date()
+  futureDate.setDate(futureDate.getDate() + count)
 
   return (
     <>
       
       
-        <Incrementer text="Step"/>
-         <Incrementer text="Count"/>
-<p>
-       {`${count1} days from today is `  +  new Date().toDateString()}
+        <Incrementer text="Step" count={step} onIncrement={incrementStep} onDecrement={decrementStep}/>
+         <Incrementer text="Count" count={count} onIncrement={incrementCount} onDecrement={decrementCount}/>
+<p className='scoreboard'>
+       {`${count} days from today is ${futureDate.toDateString()}`}
       </p>
     </>
   )

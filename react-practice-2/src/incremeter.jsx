@@ -1,10 +1,11 @@
-function Incrementer({ text }) {  
+
+function Incrementer({ text, count, onIncrement, onDecrement }) {  
     return(
         <>
         <span style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
-            <button>-</button>
-            <p>{text}</p>
-            <button>+</button>
+            <button onClick={onDecrement}>-</button>
+            <h2>{text}: {count}</h2>
+            <button onClick={onIncrement}>+</button>
         </span>
        
         </>
